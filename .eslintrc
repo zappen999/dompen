@@ -8,15 +8,19 @@
     "google"
   ],
   "rules": {
-    "semi" : [2, "always"],
+    "semi": [2, "always"],
     "max-len": [2, 80, 2],
-    "quotes": [2, "single", { "allowTemplateLiterals": true }],
+    "strict": "error",
+    "quotes": [2, "single", {
+      "allowTemplateLiterals": true
+    }],
     "object-curly-spacing": ["error", "always", {
       "objectsInObjects": false,
       "arraysInObjects": false
-    }],
+    }]
   },
   "parserOptions": {
+    "sourceType": "script",
     "ecmaVersion": 2017
   }
 }

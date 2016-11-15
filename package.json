@@ -6,7 +6,8 @@
   "scripts": {
     "test": "./node_modules/.bin/nyc --show-process-tree ./node_modules/.bin/mocha --compilers js:babel-core/register './src/**/*.spec.js'",
     "test:native": "./node_modules/.bin/mocha --harmony-async-await './src/**/*.spec.js'",
-    "test:watch": "./node_modules/.bin/mocha --compilers js:babel-core/register --watch './src/**/*.spec.js'"
+    "test:watch": "./node_modules/.bin/mocha --compilers js:babel-core/register --watch './src/**/*.spec.js'",
+    "precommit": "./node_modules/.bin/eslint -c .eslintrc src/*.js"
   },
   "repository": {
     "type": "git",
@@ -33,6 +34,7 @@
     "eslint-config-standard": "^6.2.0",
     "eslint-plugin-promise": "^3.0.0",
     "eslint-plugin-standard": "^2.0.1",
+    "husky": "^0.11.9",
     "istanbul": "^0.4.5",
     "nyc": "^8.3.1"
   },
