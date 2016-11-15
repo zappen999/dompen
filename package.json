@@ -7,7 +7,7 @@
     "test": "./node_modules/.bin/nyc --show-process-tree ./node_modules/.bin/mocha --compilers js:babel-core/register './src/**/*.spec.js'",
     "test:native": "./node_modules/.bin/mocha --harmony-async-await './src/**/*.spec.js'",
     "test:watch": "./node_modules/.bin/mocha --compilers js:babel-core/register --watch './src/**/*.spec.js'",
-    "precommit": "./node_modules/.bin/eslint -c .eslintrc src/*.js"
+    "precommit": "./node_modules/.bin/eslint -c .eslintrc src/**/*.js"
   },
   "repository": {
     "type": "git",
