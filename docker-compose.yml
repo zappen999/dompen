@@ -1,0 +1,11 @@
+version: '2'
+services:
+  microservice:
+    container_name: 'microservice'
+    build: .
+    environment:
+      NODE_ENV: 'development'
+    volumes:
+      - ./:/home/node/app
+    ports:
+      - 80:8000

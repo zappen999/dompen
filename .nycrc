@@ -1,0 +1,11 @@
+{
+  "reporter": [
+    "lcov",
+    "text",
+    "clover"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "sourceMap": false
+}
