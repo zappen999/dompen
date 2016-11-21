@@ -34,19 +34,19 @@ This section should describe how other services can interact with this service.
 As an example, this could be a JSON REST API.
 
 ### Update user
-** POST /api/users/:id **
+**POST /api/users/:id**
 
 Updates information about an existing user, based on ID
 
-** QUERY PARAMETERS **
+**QUERY PARAMETERS**
 * **id** - ID of the user to update
 
-** REQUEST BODY **
+**REQUEST BODY**
 ```json
 { "username": "<string min:5 max:50 required>" }
 ```
 
-** RESPONSE **
+**RESPONSE**
 
 HTTP 200 - *The user was updated*
 ```json
