@@ -10,6 +10,6 @@ COPY package.json .
 RUN npm install --production
 
 # Run tests in production environment, will stop image build if tests fail
-RUN npm run test:native
+RUN ./scripts/test.sh
 
 ENTRYPOINT [ "bash", "./scripts/entrypoint.sh" ]
