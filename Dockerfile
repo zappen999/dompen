@@ -7,9 +7,17 @@ COPY scripts ./scripts
 COPY src ./src
 COPY package.json .
 
-RUN npm install --production
+# Install yarn to install and remove dependencies faster
+RUN npm install -g yarn
 
-# Run tests in production environment, will stop image build if tests fail
+# Install dev-dependencies to be able to run tests
+RUN yarn
+
+# Run tests. This will stop the image build if tests fail
 RUN ./scripts/test.sh
+
+# Remove dev dependencies after successful test
+# This is equivalent to 'npm prune --production'
+RUN yarn install --production --ignore-scripts --prefer-offline
 
 ENTRYPOINT [ "bash", "./scripts/entrypoint.sh" ]
