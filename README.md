@@ -107,3 +107,21 @@ Dompen has the following standards & workflows:
 * Master branch should always be ready to deploy to production
 * Pull requests with failing tests will be closed.
 * This document should be filled out and up to date.
+
+### Testing
+Tests should be easy to read. You can use this standard when writing tests.
+
+```
+describe <subject>
+	it (the subject) should <act like this> when <this action is performed>
+```
+
+Real example:
+
+```js
+describe('Request handler', function() {
+	it('should return false when receiving invalid payload', function() {
+		// ...
+	});
+});
+```
