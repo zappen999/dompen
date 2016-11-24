@@ -1,7 +1,6 @@
 version: '2'
 services:
-  dompen:
-    container_name: 'dompen'
+  service:
     build: .
     environment:
       NODE_ENV: 'development'

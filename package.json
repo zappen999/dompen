@@ -4,11 +4,12 @@
   "description": "Node.js boilerplace with Docker for microservices",
   "main": "index.js",
   "scripts": {
-    "test": "docker exec -it dompen bash ./scripts/test.sh",
-    "coverage": "docker exec -it dompen bash ./scripts/coverage.sh",
-    "test:watch": "docker exec -it dompen bash ./scripts/watch.sh",
+    "test": "docker exec -it $(./scripts/containername.sh) bash ./scripts/test.sh",
+    "coverage": "docker exec -it $(./scripts/containername.sh) bash ./scripts/coverage.sh",
+    "test:watch": "docker exec -it $(./scripts/containername.sh) bash ./scripts/watch.sh",
     "precommit": "./node_modules/.bin/eslint src/",
-    "bash": "docker exec -it dompen bash"
+    "bash": "docker exec -it $(./scripts/containername.sh) bash && exit 0",
+    "start": "COMPOSE_PROJECT_NAME=$(node -e \"console.log(require('./package.json').name);\") docker-compose up"
   },
   "repository": {
     "type": "git",
