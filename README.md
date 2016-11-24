@@ -85,6 +85,7 @@ scripts for that matter.
 
 | **SCRIPT**            | **USAGE**                                          | **CAVEATS**
 |----------------------:|----------------------------------------------------|-------------
+|**npm start**          |Starts the server in development mode               |Container name will be based on package name
 |**npm test**           |Runs all unit tests using mocha                     |The container must be running
 |**npm run test:watch** |Runs all unit tests and watches for changes         |The container must be running
 |**npm run coverage**   |Runs all unit tests and generates coverage          |The container must be running
