@@ -89,6 +89,7 @@ scripts for that matter.
 |**npm run test:watch** |Runs all unit tests and watches for changes         |The container must be running
 |**npm run coverage**   |Runs all unit tests and generates coverage          |The container must be running
 |**npm run precommit**  |Runs eslint just like the git precommit hook does   |-
+|**npm run bash**       |Enters the container with bash                      |-
 
 ## Environment
 Every service has it´s own runtime configuration. These should be specified in

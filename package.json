@@ -7,7 +7,8 @@
     "test": "docker exec -it dompen bash ./scripts/test.sh",
     "coverage": "docker exec -it dompen bash ./scripts/coverage.sh",
     "test:watch": "docker exec -it dompen bash ./scripts/watch.sh",
-    "precommit": "./node_modules/.bin/eslint src/"
+    "precommit": "./node_modules/.bin/eslint src/",
+    "bash": "docker exec -it dompen bash"
   },
   "repository": {
     "type": "git",
