@@ -8,16 +8,29 @@
     "google"
   ],
   "rules": {
-    "semi": [2, "always"],
     "max-len": [2, 80, 2],
     "strict": "error",
+    "semi" : [2, "always"],
     "quotes": [2, "single", {
-      "allowTemplateLiterals": true
+      "allowTemplateLiterals": true,
+      "avoidEscape": true
     }],
     "object-curly-spacing": ["error", "always", {
       "objectsInObjects": false,
       "arraysInObjects": false
-    }]
+    }],
+    "no-unused-expressions": 0,
+    "comma-dangle": ["error", "never"],
+    "arrow-parens": ["error", "as-needed"],
+    "require-jsdoc": ["error", {
+        "require": {
+            "FunctionDeclaration": false,
+            "MethodDefinition": false,
+            "ClassDeclaration": true
+        }
+    }],
+    "operator-linebreak": ["error", "after"],
+    "newline-after-var": ["error", "always"]
   },
   "parserOptions": {
     "sourceType": "script",
