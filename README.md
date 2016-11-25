@@ -1,129 +1,62 @@
 # Dompen
-> This service provides boilerplate to be able to quickly spin up
-microservices.
+> Microservice boilerplate for Node.js applications, to quickly spin up
+> new services.
 
-*Maintainer: Johan Kanefur &lt;johan.canefur@gmail.com&gt;*
+## Features
+### Isolated environment
+* [Docker](https://www.docker.com/) for contained app environment and easy deploy process.
+* Separate `node_modules` between host and container.
+* Unit tests runs in the production environment inside the container.
+* README boilerplate to help with documentation ([found here](service.md)).
 
-## TOC
-<!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+### Development environment
+* Support for ES6 (container runs Node 7 with --harmony-async-await).
+* Process restarts on change (using [nodemon](https://github.com/remy/nodemon)).
+* ESlint configuration extended from Google.
+* Debug with Chrome Developer Tools using port 9222.
+* Unit testing using [mocha](https://github.com/mochajs/mocha).
+* Generate code coverage reports using [istanbul nyc](https://github.com/istanbuljs/nyc).
 
-- [Dependencies](#dependencies)
-- [API](#api)
-	- [Update user](#update-user)
-- [Development](#development)
-	- [Prerequisites](#prerequisites)
-	- [Setup](#setup)
-	- [Tools & Scripts](#tools-scripts)
-- [Environment](#environment)
-- [Contributing](#contributing)
+## Setup & Usage
+* Install development dependencies with `npm install` (linter configs, pre-commit hooks)
+* Start the container with `docker-compose up`
 
-<!-- /TOC -->
+Restart the container when installing new dependencies in package.json
+(or run `yarn` after entering container with `npm run bash`)
 
-## Dependencies
-This service does not depend on any other services in our cluster. If it had
-any dependencies, they would appear like this:
+### Build process
+Unit tests executes when building the Docker image. Failing tests will prevent
+the image from being built.
 
-| **SERVICE** | **USAGE**                            |
-|------------:|--------------------------------------|
-|**Logger**   |To log all process behaviour          |
-|**Auth**     |To make sure consumers are authorized |
+Summary of Docker build sequence:
+1. Copy app into container
+2. Install yarn
+3. Install dependencies
+4. Run unit tests
+5. Remove development dependencies
+6. Start container
 
+When container is started, the entry point script will simply start the
+application if it´s the production environment. Otherwise it will install
+the development dependencies again, and start the server with nodemon and
+debugging server.
 
-## API
-This section should describe how other services can interact with this service.
-As an example, this could be a JSON REST API.
+Yarn is used instead of npm to quickly install and remove dependencies between
+environments without hitting the network.
 
-### Update user
-**POST /api/users/:id**
-
-Updates information about an existing user, based on ID
-
-**QUERY PARAMETERS**
-* **id** - ID of the user to update
-
-**REQUEST BODY**
-```json
-{ "username": "<string min:5 max:50 required>" }
-```
-
-**RESPONSE**
-
-HTTP 200 - *The user was updated*
-```json
-{ "message": "Success" }
-```
-
-HTTP 400 - *The username was invalid*
-```json
-{ "message": "Invalid username" }
-```
-
-## Development
-In this section, there should be clear instructions on how to setup the
-development environment. It should contain all information to get the
-project up and running to start contributing. First of all, we should list
-all the dependencies needed.
-
-### Prerequisites
-To be able to get this project up and running, you'll need:
-* Docker
-* Docker Compose
-* npm
-
-### Setup
-Follow these steps to get going:
-* `git clone git@github.com:zappen999/dompen.git`
-* `docker-compose up`
-
-The service will now run in a Docker container named `dompen`
-(specified in `docker-compose.yml`). The codebase is mounted into the container
-and the server will be restarted on save.
-
-### Tools & Scripts
-In this section, we should describe the scripts in package.json, or any other
-scripts for that matter.
-
-| **SCRIPT**            | **USAGE**                                          | **CAVEATS**
-|----------------------:|----------------------------------------------------|-------------
-|**npm start**          |Starts the server in development mode               |Container name will be based on package name
-|**npm test**           |Runs all unit tests using mocha                     |The container must be running
-|**npm run test:watch** |Runs all unit tests and watches for changes         |The container must be running
-|**npm run coverage**   |Runs all unit tests and generates coverage          |The container must be running
-|**npm run precommit**  |Runs eslint just like the git precommit hook does   |-
-|**npm run bash**       |Enters the container with bash                      |-
-
-## Environment
-Every service has it´s own runtime configuration. These should be specified in
-´docker-compose.yml´ for the development environment, and described in this
-section like so:
-
-| **VARIABLE** | **DESCRIPTION**                                                      |
-|-------------:|----------------------------------------------------------------------|
-|**NODE_ENV**  |Sets the application to either **production** or **development** mode |
-
-## Contributing
-If some particular things should be done in specific ways, it should be
-specified in this section, so that newcomers know what´s up.
-
-Dompen has the following standards & workflows:
-* Master branch should always be ready to deploy to production
-* Pull requests with failing tests will be closed.
-* This document should be filled out and up to date.
+### Scripts
+| **SCRIPT**            | **USAGE**                                           | **CAVEATS**
+|----------------------:|-----------------------------------------------------|-------------
+|**npm test**           |Runs all unit tests using mocha                      |The container must be running
+|**npm run test:watch** |Runs all unit tests and watches for changes          |The container must be running
+|**npm run cov**        |Runs all unit tests and generates coverage           |The container must be running
+|**npm run open:cov**   |Opens the code coverage report in the default browser|The container must be running
+|**npm run precommit**  |Runs eslint just like the git precommit hook does    |-
+|**npm run bash**       |Enters the container with bash                       |-
 
 ### Testing
-Tests should be easy to read. You can use this standard when writing tests.
-
+Tests should be placed next to the implementation. Ex:
 ```
-describe <subject>
-	it (the subject) should <act like this> when <this action is performed>
-```
-
-Real example:
-
-```js
-describe('Request handler', function() {
-	it('should return false when receiving invalid payload', function() {
-		// ...
-	});
-});
+├── index.js
+└── index.spec.js
 ```

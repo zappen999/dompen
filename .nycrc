@@ -1,8 +1,7 @@
 {
   "reporter": [
     "lcov",
-    "text",
-    "clover"
+    "text"
   ],
   "exclude": [
     "node_modules"
