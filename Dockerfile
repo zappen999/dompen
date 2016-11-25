@@ -1,4 +1,4 @@
-FROM node:7
+FROM node:7.2.0
 MAINTAINER Johan Kanefur <johan.canefur@gmail.com>
 
 WORKDIR /home/node/app
