@@ -8,7 +8,7 @@ COPY src ./src
 COPY package.json .
 
 # Install yarn to install and remove dependencies faster
-RUN npm install -g yarn
+RUN npm i --silent --quiet -g yarn
 
 # Install dev-dependencies to be able to run tests
 RUN yarn
