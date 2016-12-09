@@ -4,11 +4,11 @@
   "description": "Microservice boilerplate for Node.js applications, to quickly spin up new services.",
   "main": "index.js",
   "scripts": {
-    "test": "docker exec -it $(docker-compose ps -q) bash ./scripts/test.sh",
-    "cov": "docker exec -it $(docker-compose ps -q) bash ./scripts/coverage.sh",
-    "test:watch": "docker exec -it $(docker-compose ps -q) bash ./scripts/watch.sh",
+    "test": "docker exec -it $(./scripts/containername.sh) bash ./scripts/test.sh",
+    "cov": "docker exec -it $(./scripts/containername.sh) bash ./scripts/coverage.sh",
+    "test:watch": "docker exec -it $(./scripts/containername.sh) bash ./scripts/watch.sh",
     "precommit": "./node_modules/.bin/eslint src/",
-    "bash": "docker exec -it $(docker-compose ps -q) bash",
+    "bash": "docker exec -it $(./scripts/containername.sh) bash",
     "open:cov": "open coverage/lcov-report/index.html"
   },
   "repository": {

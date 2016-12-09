@@ -1,6 +1,6 @@
 version: '2'
 services:
-  service:
+  service: # Main
     build: .
     environment:
       NODE_ENV: 'development'
