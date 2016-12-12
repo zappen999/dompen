@@ -9,6 +9,7 @@
     "test:watch": "docker exec -it $(./scripts/containername.sh) bash ./scripts/watch.sh",
     "precommit": "./node_modules/.bin/eslint src/",
     "bash": "docker exec -it $(./scripts/containername.sh) bash",
+    "reinstall": "docker exec -it $(./scripts/containername.sh) ./scripts/reinstall.sh",
     "open:cov": "open coverage/lcov-report/index.html"
   },
   "repository": {

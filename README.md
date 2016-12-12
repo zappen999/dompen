@@ -44,6 +44,10 @@ debugging server.
 Yarn is used instead of npm to quickly install and remove dependencies between
 environments without hitting the network.
 
+Since the node_modules directory isn´t shared between the host and container,
+you must restart the container, or run `npm run reinstall` in order to install
+new dependencies in the container.
+
 ### Scripts
 | **SCRIPT**            | **USAGE**                                           | **CAVEATS**
 |----------------------:|-----------------------------------------------------|-------------
@@ -52,7 +56,8 @@ environments without hitting the network.
 |**npm run cov**        |Runs all unit tests and generates coverage           |The container must be running
 |**npm run open:cov**   |Opens the code coverage report in the default browser|The container must be running
 |**npm run precommit**  |Runs eslint just like the git precommit hook does    |-
-|**npm run bash**       |Enters the container with bash                       |-
+|**npm run bash**       |Enters the container with bash                       |The container must be running
+|**npm run reinstall**  |Installs dependencies using yarn inside the container|The container must be running
 
 ### Testing
 Tests should be placed next to the implementation. Ex:
