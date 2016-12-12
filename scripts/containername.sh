@@ -5,4 +5,4 @@ MAIN_SERVICE_NAME=$(cat docker-compose.yml | \
   grep -o -E '\s{2}(\w+):' | \
   grep -o -E '(\w+)')
 
-docker ps -f name="${MAIN_SERVICE_NAME}" -q
+docker ps --filter name="${MAIN_SERVICE_NAME}_(\d+)" -q
