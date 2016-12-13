@@ -6,6 +6,7 @@ WORKDIR /home/node/app
 COPY scripts ./scripts
 COPY src ./src
 COPY package.json .
+COPY .nycrc .
 
 # Install yarn to install and remove dependencies faster
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
