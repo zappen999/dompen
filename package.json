@@ -10,7 +10,7 @@
     "precommit": "./node_modules/.bin/eslint src/",
     "bash": "docker exec -it $(./scripts/containername.sh) bash",
     "reinstall": "docker exec -it $(./scripts/containername.sh) ./scripts/reinstall.sh",
-    "open:cov": "open coverage/lcov-report/index.html"
+    "open:cov": "python -m webbrowser \"coverage/lcov-report/index.html\""
   },
   "repository": {
     "type": "git",
