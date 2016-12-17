@@ -2,7 +2,7 @@
   "name": "dompen",
   "version": "1.0.0",
   "description": "Microservice boilerplate for Node.js applications, to quickly spin up new services.",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "docker exec -it $(./scripts/containername.sh) bash ./scripts/test.sh",
     "cov": "docker exec -it $(./scripts/containername.sh) bash ./scripts/coverage.sh",
