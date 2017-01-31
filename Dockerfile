@@ -6,6 +6,7 @@ WORKDIR /home/node/app
 COPY scripts ./scripts
 COPY src ./src
 COPY package.json .
+COPY yarn.lock .
 COPY .nycrc .
 
 # Install yarn to install and remove dependencies faster
