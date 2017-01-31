@@ -26,23 +26,23 @@ Restart the container when installing new dependencies in package.json
 
 ### Setting up a service
 The typical flow of setting up a service would be to:
-1. Create a repository for your service
-2. Add Dompen as a remote: `git remote add dompen git@github.com:zappen999/dompen.git`
-3. Rebase Dompen: `git rebase dompen master`
-4. Keep up with Dompen updates by merging master once in a while: `git merge dompen master`
-5. Replace this `README.md` with `service.md` and fill out the boilerplate documentation
+1. Create a repository for your service<br>
+2. Add Dompen as a remote: `git remote add dompen git@github.com:zappen999/dompen.git`<br>
+3. Rebase Dompen: `git rebase dompen master`<br>
+4. Keep up with Dompen updates by merging master once in a while: `git merge dompen master`<br>
+5. Replace this `README.md` with `service.md` and fill out the boilerplate documentation<br>
 
 ### Build process
 Unit tests executes when building the Docker image. Failing tests will prevent
 the image from being built.
 
 Summary of Docker build sequence:
-1. Copy app into container
-2. Install yarn
-3. Install dependencies
-4. Run unit tests
-5. Remove development dependencies
-6. Start container
+1. Copy app into container<br>
+2. Install yarn<br>
+3. Install dependencies<br>
+4. Run unit tests<br>
+5. Remove development dependencies<br>
+6. Start container<br>
 
 When container is started, the entry point script will simply start the
 application if it´s the production environment. Otherwise it will install
