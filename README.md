@@ -25,7 +25,7 @@ Restart the container when installing new dependencies in package.json
 (or run `yarn` after entering container with `npm run bash`)
 
 ### Setting up a service
-The typical flow of setting up a service would be to:
+The typical flow of setting up a service would be to:<br>
 1. Create a repository for your service<br>
 2. Add Dompen as a remote: `git remote add dompen git@github.com:zappen999/dompen.git`<br>
 3. Rebase Dompen: `git rebase dompen master`<br>
@@ -36,7 +36,7 @@ The typical flow of setting up a service would be to:
 Unit tests executes when building the Docker image. Failing tests will prevent
 the image from being built.
 
-Summary of Docker build sequence:
+Summary of Docker build sequence:<br>
 1. Copy app into container<br>
 2. Install yarn<br>
 3. Install dependencies<br>
