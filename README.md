@@ -24,6 +24,14 @@
 Restart the container when installing new dependencies in package.json
 (or run `yarn` after entering container with `npm run bash`)
 
+### Setting up a service
+The typical flow of setting up a service would be to:
+1. Create a repository for your service
+2. Add Dompen as a remote: `git remote add dompen git@github.com:zappen999/dompen.git`
+3. Rebase Dompen: `git rebase dompen master`
+4. Keep up with Dompen updates by merging master once in a while: `git merge dompen master`
+5. Replace this `README.md` with `service.md` and fill out the boilerplate documentation
+
 ### Build process
 Unit tests executes when building the Docker image. Failing tests will prevent
 the image from being built.
