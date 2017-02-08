@@ -1,0 +1,13 @@
+node_modules/
+deploy/
+coverage/
+.github/
+.git/
+docker-compose.yml
+service.md
+README.md
+LICENSE
+.editorconfig
+.eslintrc
+.gitignore
+
