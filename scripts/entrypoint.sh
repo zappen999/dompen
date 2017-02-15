@@ -1,7 +1,7 @@
 #!/bin/bash
 # SIGTERM handler
 handler() {
-  if [ $pid -ne 0]; then # 0 is the docker entrypoint
+  if [ $pid -ne 0 ]; then # 0 is the docker entrypoint
     # tell the node process to gracefully shut down
     kill -SIGTERM "$pid"
 
