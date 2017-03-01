@@ -4,13 +4,13 @@ services:
     build: .
     environment:
       NODE_ENV: 'development'
+      SSH_AUTH_SOCK: '/tmp/ssh_auth_sock'
     volumes:
       - ./src:/home/node/app/src
       - ./scripts:/home/node/app/scripts
       - ./package.json:/home/node/app/package.json
-      - ./yarn.lock:/home/node/app/yarn.lock
       - ./.nycrc:/home/node/app/.nycrc
       - ./coverage:/home/node/app/coverage
+      - $SSH_AUTH_SOCK:/tmp/ssh_auth_sock
     ports:
-      - 80:8000
       - 9222:9222
