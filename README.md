@@ -18,6 +18,13 @@
 * Unit testing using [mocha](https://github.com/mochajs/mocha).
 * Generate code coverage reports using [istanbul nyc](https://github.com/istanbuljs/nyc).
 
+### CI/CD Guidance
+You can use these commands in order to test the build before deploying:
+```
+docker build -t dompen .
+docker run -e SSH_AUTH_SOCK="$SSH_AUTH_SOCK" -v :w
+```
+
 ## Setup & Usage
 * Install development dependencies with `npm install` (linter configs, pre-commit hooks)
 * Start the container with `docker-compose up`

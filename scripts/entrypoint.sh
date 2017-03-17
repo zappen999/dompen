@@ -25,6 +25,11 @@ trap 'kill ${!}; handler' SIGTERM
 npm install
 ./scripts/test.sh
 
+if [ "$NODE_ENV" = "test" ]; then
+  echo "Running tests..."
+  ./scripts/test.sh
+  echo "Tests passed!"
+  exit 0
 if [ "$NODE_ENV" = "production" ]; then
   echo "Running in production mode..."
   node --harmony-async-await src/index.js &
